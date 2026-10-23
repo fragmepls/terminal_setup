@@ -75,4 +75,7 @@ if [[ "$(dscl . -read "/Users/$USER" UserShell | awk '{print $2}')" != */zsh ]];
   chsh -s /bin/zsh
 fi
 
-info "Done. Set your terminal font to 'MesloLGS Nerd Font', then run: exec zsh"
+info "Done. Set your terminal font to 'MesloLGS Nerd Font'."
+
+# Drop straight into the new shell when run from a terminal
+if [[ -t 0 && -t 1 ]]; then exec zsh -l; fi

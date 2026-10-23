@@ -112,4 +112,7 @@ if [[ "$(getent passwd "$USER" | cut -d: -f7)" != "$ZSH_BIN" ]]; then
   $SUDO chsh -s "$ZSH_BIN" "$USER" || warn "chsh failed; run: chsh -s $ZSH_BIN"
 fi
 
-info "Done. Set your terminal font to 'MesloLGS Nerd Font', then log out and back in (or run: exec zsh)"
+info "Done. Set your terminal font to 'MesloLGS Nerd Font'."
+
+# Drop straight into the new shell when run from a terminal
+if [[ -t 0 && -t 1 ]]; then exec zsh -l; fi
