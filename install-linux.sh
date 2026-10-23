@@ -108,7 +108,8 @@ ZSH_BIN="$(command -v zsh)"
 if [[ "$(getent passwd "$USER" | cut -d: -f7)" != "$ZSH_BIN" ]]; then
   info "Setting zsh as default shell"
   grep -qx "$ZSH_BIN" /etc/shells || echo "$ZSH_BIN" | $SUDO tee -a /etc/shells >/dev/null
-  chsh -s "$ZSH_BIN" || warn "chsh failed; run: chsh -s $ZSH_BIN"
+  # via sudo so it also works for passwordless users (cloud VMs, Lima, WSL)
+  $SUDO chsh -s "$ZSH_BIN" "$USER" || warn "chsh failed; run: chsh -s $ZSH_BIN"
 fi
 
 info "Done. Set your terminal font to 'MesloLGS Nerd Font', then log out and back in (or run: exec zsh)"
