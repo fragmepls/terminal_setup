@@ -1,0 +1,104 @@
+VIM KEYMAPS CHEAT SHEET (UPDATED)
+
+Leader key: Space
+
+=========================
+GENERAL
+=========================
+Space r        -> Reload .vimrc
+Space w        -> Save file
+Space q        -> Quit
+Space h        -> Clear search highlight
+
+=========================
+NERDTREE
+=========================
+Ctrl + n       -> Toggle NERDTree
+Space n        -> Focus NERDTree
+u              -> Go up one directory in NERDTree
+C              -> Make current directory the new root
+
+=========================
+FZF / SEARCH
+=========================
+Ctrl + p       -> Find files
+Space b        -> Switch buffers
+Space f        -> Search text in project (Ripgrep)
+
+=========================
+WINDOWS / SPLITS
+=========================
+Ctrl + h       -> Move to left window
+Ctrl + j       -> Move to lower window
+Ctrl + k       -> Move to upper window
+Ctrl + l       -> Move to right window
+
+Space sv       -> Vertical split
+Space sh       -> Horizontal split
+
+=========================
+COC / LSP NAVIGATION
+=========================
+gd             -> Go to definition
+gy             -> Go to type definition
+gi             -> Go to implementation
+gr             -> Find references
+K              -> Show hover documentation
+
+Space rn       -> Rename symbol
+Space a        -> Code action
+Space ac       -> Autofix / code action
+Space cf       -> Format current file/selection (when provider exists)
+Space p        -> Format file with Prettier
+
+=========================
+COMPLETION (INSERT MODE)
+=========================
+Tab            -> Next Coc completion item / trigger completion
+Ctrl + k       -> Previous Coc completion item
+Enter          -> Confirm Coc completion
+
+=========================
+GITHUB COPILOT
+=========================
+Shift + Tab    -> Accept Copilot suggestion
+
+Note:
+- Shift+Tab works only if your terminal sends <S-Tab> correctly.
+- Test in Vim with: Ctrl+v then Shift+Tab
+- If you see ^[[Z, Shift+Tab is supported.
+
+=========================
+COMMENTING (vim-commentary)
+=========================
+gcc            -> Comment/uncomment current line
+gc + motion    -> Comment a motion (example: gcap)
+Visual gc      -> Comment selected lines
+
+=========================
+SURROUND (vim-surround)
+=========================
+ds"            -> Delete surrounding double quotes
+cs"'           -> Change surrounding " to '
+ysiw"          -> Surround inner word with double quotes
+
+=========================
+GIT (vim-fugitive)
+=========================
+:Git status    -> Open Git status
+
+=========================
+FORMAT ON SAVE
+=========================
+Auto format on save is enabled only for:
+- *.html
+- *.css
+- *.json
+
+=========================
+LANGUAGE SUPPORT
+=========================
+PHP            -> Coc + Intelephense suggestions/completion
+HTML/CSS       -> Coc + Prettier formatting
+C#             -> Coc OmniSharp + Copilot (project-aware)
+
